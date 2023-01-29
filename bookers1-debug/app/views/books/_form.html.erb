@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= form_with model: @book do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -24,4 +25,5 @@
   <div>
     <%= f.submit %>
   </div>
+  <% end %>
 <% end %>
