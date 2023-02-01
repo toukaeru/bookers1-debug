@@ -9,7 +9,6 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   def index
     @books = Book.all
     @book = Book.new
-    @user = current_user
   end
 
   def create
@@ -19,7 +18,6 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy]
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
       @books = Book.all
-      @user = current_user
       render :index
     end
   end
