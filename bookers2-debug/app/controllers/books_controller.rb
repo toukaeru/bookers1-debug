@@ -4,6 +4,7 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy]
     @books = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
+    @book_coment = BookComent.new
   end
 
   def index
