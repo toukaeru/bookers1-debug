@@ -31,27 +31,11 @@
           </tr>
       </table>
       <table class = 'table'>
-          <tr>
-              <td>
-                <% @book.book_coments.each do |book_coment| %>
-                 <%= link_to(@book.user) do %>
-                 <%= image_tag book_coment.user.get_profile_image, size:'100x100' %><br>
-                 <%= book_coment.user.name %>
-               <% end %>
-               </td>
-               <td><%= book_coment.coment %></td>
-               <td>
-               <% if book_coment.user == current_user %>
-                <%= link_to "Destroy", book_book_coment_path(book_coment.book, book_coment), method: :delete,  class: "btn btn-sm btn-danger" %>
-               <% end %>
-               </td>
-              <% end %>
+          <tr id = "coments_area">
+             <%= render 'book_coments/book_coments', book: @book %>
           </tr>
      </table>
-            <%= form_with model: [@book, @book_coment] do |f| %>
-             <%= f.text_area :coment, class: 'form-control' %>
-             <%= f.submit "送信" %>
-            <% end %>
+         <%= render 'book_coments/form', book: @book, book_coment: @book_coment %>
     </div>
   </div>
 </div>
